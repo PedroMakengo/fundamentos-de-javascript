@@ -31,5 +31,11 @@ const minhaListaDeTarefas = [
 
 // qual item de inicio
 // quantos remover
-minhaListaDeTarefas.splice(2, 1);
-console.log(minhaListaDeTarefas);
+// minhaListaDeTarefas.splice(2, 1);
+// console.log(minhaListaDeTarefas);
+
+const itens = [1, "Computador", 0.22];
+
+// verificar o tipo de itens
+
+console.log(typeof itens);
