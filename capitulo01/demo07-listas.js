@@ -34,8 +34,25 @@ const minhaListaDeTarefas = [
 // minhaListaDeTarefas.splice(2, 1);
 // console.log(minhaListaDeTarefas);
 
-const itens = [1, "Computador", 0.22];
+// const itens = [1, "Computador", 0.22];
 
 // verificar o tipo de itens
+// console.log(typeof itens);
 
-console.log(typeof itens);
+// verificar se é array da forma correta\
+// console.log(Array.isArray(itens));
+
+// Ordenar uma lista
+// const numeros = [3, 2, 1, 0];
+// console.log(numeros.sort());
+
+// Juntar dois arrays
+// const novo = itens.concat([1, 2, 3]);
+// console.log(novo);
+
+// Juntar duas array em uma única string
+// console.log(itens.join(","));
+
+// Verificar o índice de um array
+const index = itens.indexOf("computador");
+console.log(itens[index]);
