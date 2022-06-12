@@ -22,6 +22,14 @@ const minhaListaDeTarefas = [
 // console.log(ultimo, minhaListaDeTarefas);
 
 // remover o primeiro da lista
-const primeiro = minhaListaDeTarefas.shift();
+// const primeiro = minhaListaDeTarefas.shift();
+// console.log(primeiro, minhaListaDeTarefas);
+// console.log(minhaListaDeTarefas);
+
+// remover um item especifico a partir de um índice
+// console.log(minhaListaDeTarefas[2]);
+
+// qual item de inicio
+// quantos remover
+minhaListaDeTarefas.splice(2, 1);
 console.log(minhaListaDeTarefas);
-console.log(primeiro, minhaListaDeTarefas);
