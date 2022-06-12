@@ -18,5 +18,10 @@ const minhaListaDeTarefas = [
 // console.log(minhaListaDeTarefas);
 
 // remover ultimo da lista
-const ultimo = minhaListaDeTarefas.pop();
-console.log(ultimo, minhaListaDeTarefas);
+// const ultimo = minhaListaDeTarefas.pop();
+// console.log(ultimo, minhaListaDeTarefas);
+
+// remover o primeiro da lista
+const primeiro = minhaListaDeTarefas.shift();
+console.log(minhaListaDeTarefas);
+console.log(primeiro, minhaListaDeTarefas);
