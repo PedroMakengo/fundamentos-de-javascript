@@ -24,13 +24,12 @@ fs.readFile("./arq1.txt", (errorArq1, respostaArq1) => {
         return;
       }
       const conteudo = `${respostaArq1}\n${respostaArq2}\n${respostaArq3}`;
-      console.log(conteudo);
-      // Escrever um novo arquivo
       fs.writeFile("./final.txt", conteudo, (errorWrite, respostaWrite) => {
         if (errorWrite) {
           console.error("Deu ruim na gravação", errorWrite);
+          return;
         }
-        console.log("Arquivo salvo com sucesso!!");
+        console.log("Arquivo salvo com sucesso!!!");
       });
     });
   });
