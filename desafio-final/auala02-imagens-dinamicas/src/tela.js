@@ -1,3 +1,4 @@
+const ID_CONTEUDO = "conteudo";
 class Tela {
   static obterCodigoHtml(item) {
     return `
@@ -8,5 +9,22 @@ class Tela {
       <br/>
     </div>
     `;
+  }
+
+  static alterarConteudoHTML(codigoHtml) {
+    const conteudo = document.getElementById(ID_CONTEUDO);
+    conteudo.innerHTML = codigoHtml;
+  }
+
+  static gerarStringHTMLPelaImagem(itens) {
+    // para cada item da lista, vai executar a função obterCodigoHtml
+    // ao final, vai concatenar tudo em uma unica string
+    // muda de Array para String
+    return itens.map(Tela.obterCodigoHtml).join("");
+  }
+
+  static atualizarImages(itens) {
+    const codigoHtml = Tela.gerarStringHTMLPelaImagem(itens);
+    Tela.alterarConteudoHTML(codigoHtml);
   }
 }
