@@ -1,5 +1,6 @@
 const ID_CONTEUDO = "conteudo";
 const ID_BTN_JOGAR = "jogar";
+
 class Tela {
   static obterCodigoHtml(item) {
     return `
