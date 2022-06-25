@@ -9,6 +9,9 @@ class JogoDaMemoria {
       { img: "./assets/img/deadpool.png", name: "deadpoll" },
       { img: "./assets/img/mulhermaravilha.png", name: "mulher maravilha" },
     ];
+
+    this.iconePadrao = "./assets/img/default.png";
+    this.heroisEscondidos = [];
   }
 
   // Usamos o static quando não precisamos usar a palavra reservada this
@@ -19,6 +22,7 @@ class JogoDaMemoria {
     // força a tela a usar o this de jogo da memoria
     this.tela.configurarBotaoJogar(this.jogar.bind(this));
   }
+
   embaralhar() {
     const copias = this.heroisIniciais
       // duplicar os itens
@@ -30,6 +34,23 @@ class JogoDaMemoria {
       .sort(() => Math.random() - 0.5);
 
     this.tela.atualizarImages(copias);
+
+    setTimeout(() => {
+      this.esconderHerois(copias);
+    }, 1000);
+  }
+
+  esconderHerois(herois) {
+    const heroisOcultos = herois.map(({ id, nome }) => ({
+      id,
+      nome,
+      img: this.iconePadrao,
+    }));
+
+    // Atualizar os meus herois
+    this.tela.atualizarImages(heroisOcultos);
+    // Criando uma nova variavel
+    this.heroisOcultos = heroisOcultos;
   }
 
   jogar() {
