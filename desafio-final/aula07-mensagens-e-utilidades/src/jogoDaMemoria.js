@@ -1,6 +1,7 @@
 class JogoDaMemoria {
-  constructor({ tela }) {
+  constructor({ tela, util }) {
     this.tela = tela;
+    this.util = util;
 
     // caminho do arquivo é sempre relativo
     this.heroisIniciais = [
@@ -25,7 +26,7 @@ class JogoDaMemoria {
     this.tela.configurarBotaoVerificarSelecao(this.verificarSelecao.bind(this));
   }
 
-  embaralhar() {
+  async embaralhar() {
     const copias = this.heroisIniciais
       // duplicar os itens
       .concat(this.heroisIniciais)
@@ -36,10 +37,11 @@ class JogoDaMemoria {
       .sort(() => Math.random() - 0.5);
 
     this.tela.atualizarImages(copias);
+    this.tela.exibirCarregando();
 
-    setTimeout(() => {
-      this.esconderHerois(copias);
-    }, 1000);
+    await this.util.timeout(1000);
+    this.esconderHerois(copias);
+    this.tela.exibirCarregando(false);
   }
 
   esconderHerois(herois) {

@@ -1,7 +1,13 @@
+// metodos estáticos não podem acessar o this
+// por isso, não vamos colocar o util no construtor
+const util = Util;
+
 const ID_CONTEUDO = "conteudo";
 const ID_BTN_JOGAR = "jogar";
 const ID_MENSAGEM = "mensagem";
 const CLASSE_INVISIVEL = "invisible";
+const ID_CARREGANDO = "carregando";
+const ID_CONTADOR = "contador";
 
 const MENSAGENS = {
   sucesso: {
@@ -58,7 +64,7 @@ class Tela {
     elementosHtml.forEach((item) => (item.src = img));
   }
 
-  static exibirMensagem(sucesso = true) {
+  static async exibirMensagem(sucesso = true) {
     const elemento = document.getElementById(ID_MENSAGEM);
 
     if (sucesso) {
@@ -71,5 +77,16 @@ class Tela {
       elemento.innerText = MENSAGENS.erro.texto;
     }
     elemento.classList.remove(CLASSE_INVISIVEL);
+    await util.timeout(1000);
+    elemento.classList.add(CLASSE_INVISIVEL);
+  }
+
+  static exibirCarregando(mostrar = true) {
+    const carregando = document.getElementById(ID_CARREGANDO);
+    if (mostrar) {
+      carregando.classList.remove(CLASSE_INVISIVEL);
+      return;
+    }
+    carregando.classList.add(CLASSE_INVISIVEL);
   }
 }

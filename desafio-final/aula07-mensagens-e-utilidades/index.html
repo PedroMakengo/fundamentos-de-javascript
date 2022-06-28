@@ -7,6 +7,7 @@
     <title>Memory Game</title>
     <link rel="stylesheet" href="assets/bootstrap.min.css" />
     <script src="./index.js"></script>
+    <script src="./src/util.js"></script>
     <script src="./src/jogoDaMemoria.js"></script>
     <script src="./src/tela.js"></script>
   </head>
@@ -22,7 +23,15 @@
     </div>
     <br />
 
+    <div id="carregando" class="row container-fluid invisible">
+      <strong id="contador">Começando em 1...</strong>
+      <div class="spinner-border text-warning spinner-border-sm" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+
     <div id="conteudo" class="row"></div>
+
     <div class="row container-fluid">
       <div id="mensagem" class="alert alert-danger invisible" role="alert">
         Combinação!!
