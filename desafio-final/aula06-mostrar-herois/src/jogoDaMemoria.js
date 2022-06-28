@@ -55,6 +55,14 @@ class JogoDaMemoria {
     this.heroisOcultos = heroisOcultos;
   }
 
+  exibirHerois(nomeDoHeroi) {
+    // vamos procurar esse heroi pelo nome em nossos herois iniciais
+    const { img } = this.heroisIniciais.find(
+      ({ nome }) => nomeDoHeroi === nome
+    );
+    this.tela.exibirHerois(nomeDoHeroi, img);
+  }
+
   verificarSelecao(id, nome) {
     const item = { id, nome };
     // vamos verificar a quantidade de herois selecionados
@@ -77,10 +85,11 @@ class JogoDaMemoria {
         // conferimos se os nomes e ids batem conforme
         // o esperado
         if (opacao1.nome === item.nome && opacao1.id !== item.id) {
-          alert("Combinação correta! " + item.nome);
+          this.exibirHerois(item.nome);
+          this.tela.exibirMensagem();
           return;
         }
-        alert("Combinação incorreta! ");
+        this.tela.exibirMensagem(false);
         break;
     }
   }
